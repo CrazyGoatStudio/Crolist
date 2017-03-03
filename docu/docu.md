@@ -1,6 +1,6 @@
 # **Crolist**
 
-TODO: Descripcion
+Primero, instale Node.js. Luego, instale las últimas herramientas de línea de comandos de Cordova e Ionic en su terminal. Siga las guías de plataforma de Android e iOS para instalar las herramientas necesarias para el desarrollo.
     
 
 
