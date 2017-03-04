@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { MusicPlayerPage } from '../music-player/music-player';
+import { JoinPartyPage } from '../join-party/join-party';
+
 /*
   Generated class for the Home page.
 
@@ -13,10 +16,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  tab1Root: any = JoinPartyPage;
+  tab2Root: any = MusicPlayerPage;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // this.tab1Root = JoinPartyPage;
+    // this.tab2Root = MusicPlayerPage;
   }
 
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad HomePage');
+  // }
 }

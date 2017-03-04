@@ -19,7 +19,7 @@ export class MyApp {
   constructor(platform: Platform, public menuCtrl: MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      // Here you can do any higher level native things you might +-need.
       this.pages = [
         { title: 'Pagina principal', component: HomePage },
         { title: 'Reproducir musica', component: MusicPlayerPage },     

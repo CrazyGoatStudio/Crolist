@@ -17,8 +17,21 @@
 
 
 <ion-content padding>
-  <input placeholder="Enter a video id" #videoId>
-  <button ion-button (click)="openVideo(videoId.value)">
-    <ion-icon name="play"></ion-icon>
-  </button>
+  <ion-list>
+    <audio-track #audio *ngFor="let track of myTracks" [track]="track" (onFinish)="onTrackFinished($event)">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="{{audio.art}}">
+          <audio-track-play dark [audioTrack]="audio">
+            <ion-spinner></ion-spinner>
+          </audio-track-play>
+        </ion-thumbnail>
+        <div item-content style="width:100%">
+          <p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
+          <audio-track-progress-bar duration progress [audioTrack]="audio"></audio-track-progress-bar>
+          <em style="font-size:.5em">Track ID: {{audio.id}}</em>
+        </div>
+      </ion-item>
+    </audio-track>
+  </ion-list>
 </ion-content>
