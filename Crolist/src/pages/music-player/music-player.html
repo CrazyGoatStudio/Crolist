@@ -1,5 +1,5 @@
 <!--
-  Generated template for the Home page.
+  Generated template for the MusicPlayer page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -10,12 +10,15 @@
     <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Music Player</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <input placeholder="Enter a video id" #videoId>
+  <button ion-button (click)="openVideo(videoId.value)">
+    <ion-icon name="play"></ion-icon>
+  </button>
 </ion-content>
