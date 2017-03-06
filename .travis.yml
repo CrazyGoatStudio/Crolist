@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "6"
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install
+  - npm install -g cordova ionic
+before_script:
+  - cordova plugin rm cordova-plugin-console
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - cd Crolist\
+  - cordova platform add android
+  - cordova build --release android
+
+deploy:
+  skip_cleanup: true
