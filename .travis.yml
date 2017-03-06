@@ -8,8 +8,10 @@ install:
   - npm install
   - npm install -g cordova ionic
 script:
- - chmod -x build_apk.sh
- - ./build_apk.sh
+ - cd Crolist/
+ - cordova plugin rm cordova-plugin-console
+ - cordova platform add android
+ - cordova build --release android
 
 deploy:
   skip_cleanup: true
