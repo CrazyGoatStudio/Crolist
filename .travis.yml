@@ -10,6 +10,7 @@ install:
   - cd Crolist/
   - echo "Install directory" && pwd
   - npm install
+  - npm install -g cordova ionic
 before_script:
   - wget http://dl.google.com/android/android-sdk_r24.4-linux.tgz
   - tar -xvf android-sdk_r24.4-linux.tgz
