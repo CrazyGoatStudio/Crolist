@@ -7,13 +7,11 @@ cache:
 before install:
   - chmod -x build_apk.sh
 install:
-  -  cd Crolist/
-  - echo "Install directory" && echo pwd
+  - cd Crolist/
+  - echo "Install directory" && pwd
   - npm install
   - npm install -g cordova ionic
 script:
-
- - ./build_apk.sh
-
+ - ../build_apk.sh
 deploy:
   skip_cleanup: true
