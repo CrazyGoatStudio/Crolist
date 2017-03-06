@@ -10,8 +10,24 @@ install:
   - cd Crolist/
   - echo "Install directory" && pwd
   - npm install
-  - npm install -g cordova ionic
+before_script:
+  - wget http://dl.google.com/android/android-sdk_r24.4-linux.tgz
+  - tar -xvf android-sdk_r24.4-linux.tgz
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter build-tools-23.0.2
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter android-23
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-support
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-m2repository
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-google-m2repository
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2
 script:
- - ../build_apk.sh
+ - echo "Script directory" && pwd
+ -mkdir www
+ -mkdir "$ANDROID_HOME/licenses"
+ -echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+ -cordova plugin rm cordova-plugin-console
+ -cordova platform add android
+ -cordova build --release android
 deploy:
   skip_cleanup: true
