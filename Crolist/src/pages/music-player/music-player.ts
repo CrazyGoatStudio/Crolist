@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Tabs } from 'ionic-angular';
 
 //Added pluggins
 import { AudioProvider } from 'ionic-audio/dist';
@@ -60,5 +60,9 @@ export class MusicPlayerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MusicPlayerPage');
+  }
+  selectTab(index: number) {
+    var t: Tabs = this.navCtrl.parent;
+    t.select(index);
   }
 }

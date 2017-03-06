@@ -16,12 +16,15 @@ import { JoinPartyPage } from '../join-party/join-party';
 })
 export class HomePage {
 
-  tab1Root: any = JoinPartyPage;
-  tab2Root: any = MusicPlayerPage;
+  tab1: any;
+  tab2: any;
+   
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // this.tab1Root = JoinPartyPage;
     // this.tab2Root = MusicPlayerPage;
+    this.tab1 = JoinPartyPage;
+    this.tab2 = MusicPlayerPage;
   }
 
   // ionViewDidLoad() {

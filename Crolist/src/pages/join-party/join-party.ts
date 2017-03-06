@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Tabs } from 'ionic-angular';
 
 /*
   Generated class for the JoinParty page.
@@ -18,5 +18,8 @@ export class JoinPartyPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoinPartyPage');
   }
-
+  selectTab(index: number) {
+    var t: Tabs = this.navCtrl.parent;
+    t.select(index);
+  }
 }
