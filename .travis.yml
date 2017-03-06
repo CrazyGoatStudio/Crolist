@@ -9,7 +9,7 @@ install:
   - npm install -g cordova ionic
 before_script:
   - cd $TRAVIS_BUILD_DIR
-  - cd Crolist\Crolist
+  - cd Crolist/Crolist
   - echo "working directory:"
   - echo pwd
   - echo ls
