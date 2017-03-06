@@ -8,10 +8,14 @@ install:
   - npm install
   - npm install -g cordova ionic
 before_script:
+  - cd $TRAVIS_BUILD_DIR
+  - cd Crolist\Crolist
+  - echo "working directory:"
+  - echo pwd
+  - echo ls
   - cordova plugin rm cordova-plugin-console
 script:
-  - cd $TRAVIS_BUILD_DIR
-  - cd Crolist\
+
   - cordova platform add android
   - cordova build --release android
 
