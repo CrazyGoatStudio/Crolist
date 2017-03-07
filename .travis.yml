@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "6"
+os: linux
+dist: trusty
 addons:
   apt:
     packages:
@@ -10,9 +12,6 @@ env:
 global:
  - JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
-cache:
-  directories:
-    - node_modules
 before install:
   - chmod -x build_apk.sh
 install:
