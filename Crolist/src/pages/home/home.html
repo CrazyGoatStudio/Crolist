@@ -1,14 +1,12 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<!--
+  Generated template for the Home page.
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+tabIcon
+<ion-tabs #tabParent [selectedIndex]="tabToShow">
+  <ion-tab tabIcon="musical-notes" tabTitle="Join Party" [root]="tab1" [rootParams]="{parent : tabParent}"></ion-tab>
+  <ion-icon name="add-circle"></ion-icon>
+  <ion-tab tabIcon="musical-notes" tabTitle="Stay Alone" [root]="tab2" [rootParams]="{parent : tabParent}"></ion-tab>
+</ion-tabs>
