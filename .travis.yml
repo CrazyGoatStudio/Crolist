@@ -1,9 +1,11 @@
 language: node_js
 node_js:
   - "6"
-env:
-    global:
-        - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
 cache:
   directories:
     - node_modules
@@ -29,7 +31,7 @@ before_script:
   - mkdir "$ANDROID_HOME/licenses"
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 script:
- - echo "Script directory" && pwd
+ #- echo "Script directory" && pwd # Debug
 
  - cordova platform add android
  - cordova build --release android
