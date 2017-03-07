@@ -45,4 +45,3 @@ deploy:
   file: platforms/android/build/outputs/apk/android-release-unsigned.apk
   on:
     repo: CrazyGoatStudio/Crolist
-    tags: build
