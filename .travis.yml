@@ -5,6 +5,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+      - oracle-java8-set-default
 
 cache:
   directories:
@@ -13,7 +14,7 @@ before install:
   - chmod -x build_apk.sh
 install:
   - cd Crolist/
-  - echo "Install directory" && pwd
+  #- echo "Install directory" && pwd # Debug
   - npm install
   - npm install -g cordova ionic
 before_script:
