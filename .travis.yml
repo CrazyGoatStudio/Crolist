@@ -8,6 +8,9 @@ addons:
     packages:
       - oracle-java8-installer
       - oracle-java8-set-default
+      - lib32z1
+      -  lib32ncurses5
+      -  lib32bz2-1.0
 env:
 global:
  - JAVA_HOME=/usr/lib/jvm/java-8-oracle
