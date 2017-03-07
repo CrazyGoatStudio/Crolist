@@ -1,0 +1,48 @@
+language: node_js
+node_js:
+- '6'
+os: linux
+dist: trusty
+addons:
+  apt:
+    packages:
+    - oracle-java8-installer
+    - oracle-java8-set-default
+    - gcc-multilib
+    - lib32z1
+    - lib32ncurses5
+    - lib32bz2-1.0
+env:
+global:
+- JAVA_HOME=/usr/lib/jvm/java-8-oracle
+before install:
+- chmod -x build_apk.sh
+install:
+- cd Crolist/
+- npm install
+- npm install -g cordova ionic
+before_script:
+- wget http://dl.google.com/android/android-sdk_r24.4-linux.tgz
+- tar -xvf android-sdk_r24.4-linux.tgz
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter build-tools-23.0.2
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter android-23
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-support
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-m2repository
+- echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-google-m2repository
+- export ANDROID_HOME=$PWD/android-sdk-linux
+- export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2
+- mkdir www
+- mkdir "$ANDROID_HOME/licenses"
+- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+script:
+- cordova platform add android
+- cordova build --release android
+deploy:
+  provider: releases
+  api_key:
+    secure: T//U1e3hXZHsz2plZhLxSR3MONmuu7DPvy5luk3jJI8+8EGlrLY04suX4meGvGVhGJP3062gdanFNovGynT9nW6XYpIDPQeD09ryqE158F3HWXG5eQ5/RPX4eHtk0yA4BNjzP0IzwxcjZXISQMPjginZA1OLFlErMATqXC2KwKsj3HmhyS8aVuVY/LBNM9dx5y1zs84Aegah2lGdaxw7FUM0wF6m0zRq1Gv/N/BUZ7JTEUBE2cWrbB3nnEkHg+Z4Y8kwPydlisoLvUdg/4wn2FF8AHONSxWASVPNdmRfwzToa7XWj3dznYwbbn80aAh3hhzSsmd92j1YUBsQPkLCeRaFQ3rbkrkeWJk6DdCNXIR1I/taoutcjbSnruOpdUOrB/GHLrfm62EBxEBbu7kPlXcx/xTt5RJqMq5L8QTt0wVFu9Rm2BCKcmGl/M6VJakWhVI1S7GWk+YBAjJLTnfeBgOmca+JY/VG6sdwkgQJPahIuT5wQ1uJqpD/axzq+JsLaQsW87Snl2rPG7C69Zkg2ScY0X9aGgm/1rTLCy3j/Hj6nG6b0KMtihuNOlALjYWnvo3jVUMWsfhViuLWiZoXo21YHGzhH5dbXV7sZZFD01c4bvdnhQ4nhTIOVYuyO2PX7fQHZf2SRXxcmbu3P4zWWquaLkzSYPvrhcX6zhefiAk=
+  file: platforms/android/build/outputs/apk/android-release-unsigned.apk
+  on:
+    repo: CrazyGoatStudio/Crolist
+    tags: build
