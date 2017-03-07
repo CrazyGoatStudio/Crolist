@@ -42,6 +42,7 @@ deploy:
   provider: releases
   api_key:
     secure: T//U1e3hXZHsz2plZhLxSR3MONmuu7DPvy5luk3jJI8+8EGlrLY04suX4meGvGVhGJP3062gdanFNovGynT9nW6XYpIDPQeD09ryqE158F3HWXG5eQ5/RPX4eHtk0yA4BNjzP0IzwxcjZXISQMPjginZA1OLFlErMATqXC2KwKsj3HmhyS8aVuVY/LBNM9dx5y1zs84Aegah2lGdaxw7FUM0wF6m0zRq1Gv/N/BUZ7JTEUBE2cWrbB3nnEkHg+Z4Y8kwPydlisoLvUdg/4wn2FF8AHONSxWASVPNdmRfwzToa7XWj3dznYwbbn80aAh3hhzSsmd92j1YUBsQPkLCeRaFQ3rbkrkeWJk6DdCNXIR1I/taoutcjbSnruOpdUOrB/GHLrfm62EBxEBbu7kPlXcx/xTt5RJqMq5L8QTt0wVFu9Rm2BCKcmGl/M6VJakWhVI1S7GWk+YBAjJLTnfeBgOmca+JY/VG6sdwkgQJPahIuT5wQ1uJqpD/axzq+JsLaQsW87Snl2rPG7C69Zkg2ScY0X9aGgm/1rTLCy3j/Hj6nG6b0KMtihuNOlALjYWnvo3jVUMWsfhViuLWiZoXo21YHGzhH5dbXV7sZZFD01c4bvdnhQ4nhTIOVYuyO2PX7fQHZf2SRXxcmbu3P4zWWquaLkzSYPvrhcX6zhefiAk=
-  file: platforms/android/build/outputs/apk/android-release-unsigned.apk
+  file: $TRAVIS_BUILD_DIR/Crolist/platforms/android/build/outputs/apk/android-release-unsigned.apk
+  skip_cleanup: true
   on:
     repo: CrazyGoatStudio/Crolist
