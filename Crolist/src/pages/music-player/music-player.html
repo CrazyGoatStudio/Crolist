@@ -17,7 +17,8 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <button ion-button (click)="filechooser()">Click</button>
+  <!--<ion-list>
     <audio-track #audio *ngFor="let track of myTracks" [track]="track" (onFinish)="onTrackFinished($event)">
       <ion-item>
         <ion-thumbnail item-left>
@@ -33,5 +34,5 @@
         </div>
       </ion-item>
     </audio-track>
-  </ion-list>
+  </ion-list>-->
 </ion-content>
